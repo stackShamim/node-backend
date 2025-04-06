@@ -2,17 +2,19 @@ const express = require('express');
 const router = express.Router();
 
 // Controllers
-const userController = require('../controllers/user');
+const { signInUser, signUpUser } = require('../controllers/user');
 
 // Middlewares
-const auth = require('../middlewares/auth');
+const { checkNewUser, checkUserPassword, checkUserEmail } = require('../middlewares/auth');
+const validate = require('../middlewares/validate');
+const { signUpSchema, signInSchema } = require('../validation/user');
 
 // USER AUTH ROUTES
 
 // Signup
-router.post('/user/signup', auth.checkNewUser, userController.signUpUser);
+router.post('/user/signup', validate(signUpSchema), checkNewUser, signUpUser);
 
 // Signin
-router.post('/user/signin', auth.checkUserEmail, auth.checkUserPassword, userController.signInUser);
+router.post('/user/signin', validate(signInSchema), checkUserEmail, checkUserPassword, signInUser);
 
 module.exports = router;
