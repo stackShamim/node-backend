@@ -1,6 +1,7 @@
 module.exports = {
-  auth: require('./auth'),
+  auth: require('./auth.route'),
   customer: require('./customer'),
   seller: require('./seller'),
   distributor: require('./distributor'),
+  public: require('./public.route')
 };

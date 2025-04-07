@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 // Controllers
-const { signInUser, signUpUser } = require('../controllers/user');
+const { signInUser, signUpUser } = require('../controllers/auth.controller');
 
 // Middlewares
-const { checkNewUser, checkUserPassword, checkUserEmail } = require('../middlewares/auth');
-const validate = require('../middlewares/validate');
-const { signUpSchema, signInSchema } = require('../validation/user');
+const { checkNewUser, checkUserPassword, checkUserEmail } = require('../middlewares/auth.middleware');
+const validate = require('../middlewares/validate.middleware');
+const { signUpSchema, signInSchema } = require('../validation/user.schema');
 
 // USER AUTH ROUTES
 

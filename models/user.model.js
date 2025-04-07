@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const { hashPassword } = require('../utils/auth');
+const { hashPassword } = require('../utils/auth.util');
 
 // User roles
 const USER_ROLES = ['customer', 'seller', 'distributor'];
